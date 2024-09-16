@@ -6,12 +6,14 @@ import { Label } from '@/components/ui/label';
 import { LOGIN_MUTATION } from '@/graphql/mutations';
 import { useMutation } from '@apollo/client';
 import { jwtDecode } from 'jwt-decode';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [login, { loading, error }] = useMutation(LOGIN_MUTATION);
+  const router = useRouter()
 
   const handleLogin = async () => {
 
@@ -25,7 +27,7 @@ const Login = () => {
 
       const decodedToken = jwtDecode(data.login.access_token) as { exp: number };
 
-      location.replace('/my-info');
+      router.push('/my-info');
     } catch (err) {
       console.error('Ошибка при логине:', err);
     }
@@ -43,11 +45,11 @@ const Login = () => {
         <CardContent className="grid gap-4">
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
-            <Input value={email} onChange={e => setEmail(e.target.value)} id="email" type="email" placeholder="m@example.com" required />
+            <Input value={email} onChange={e => setEmail(e.target.value)} id="email" type="email" placeholder="test@mail.ru" required />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="password">Password</Label>
-            <Input value={password} onChange={e => setPassword(e.target.value)} id="password" type="password" required />
+            <Input value={password} onChange={e => setPassword(e.target.value)} id="password" type="password" placeholder='Password' required />
           </div>
         </CardContent>
         <CardFooter >

@@ -1,13 +1,19 @@
-import { PrivateRoute } from "@/components/PrivateRoute";
-import type { AppProps } from "next/app";
+"use client"
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
-export default function Home({ Component, pageProps }: AppProps) {
+export default function Home() {
+  const router = useRouter();
 
-  const token = localStorage.getItem("access_token")
+  useEffect(() => {
+    const token = localStorage.getItem("access_token");
 
-  return token ? <>
-    <Component {...pageProps} />
-  </> : <PrivateRoute>
-    <Component {...pageProps} />
-  </PrivateRoute>
+    if (!token) {
+      router.push("/login")
+    }
+
+    router.push("/my-info")
+  }, [router])
+
+  return <div>ok</div>
 }

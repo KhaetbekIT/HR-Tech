@@ -15,6 +15,7 @@ import { useForm } from "react-hook-form";
 import { TabsData } from "./item/tabs";
 import { TimeOffAside } from "./item/aside";
 import { TimeOffTabContent } from "./item/time-off";
+import { PrivateRoute } from "@/components/PrivateRoute";
 
 const menu = [
     {
@@ -120,7 +121,7 @@ const MyInfo = () => {
     const [remove, setRemove] = useState<Checked>(false);
 
     return (
-        <>
+        <PrivateRoute>
             <header className="flex gap-8 px-6 items-end justify-between bg-white">
 
                 <div className="pt-8 pb-[30px]">
@@ -131,7 +132,7 @@ const MyInfo = () => {
                     <Menu list={menu} initialLink={2} />
                 </div>
 
-                <Form >
+                <Form {...form} >
                     <FormField name="search" control={form.control} render={() => (
                         <Label className="relative max-w-[395px] w-full pb-4">
                             <span className="absolute top-2 left-4">
@@ -237,7 +238,7 @@ const MyInfo = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </PrivateRoute>
     );
 };
 

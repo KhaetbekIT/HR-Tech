@@ -1,14 +1,17 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 export const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
 
+    const router = useRouter()
+
     useEffect(() => {
         const accessToken = localStorage.getItem('access_token');
         if (!accessToken) {
-            window.location.replace('/login');
+            router.push('/login');
         }
-    }, [location]);
+    }, [router]);
 
     return <>{children}</>;
 };
