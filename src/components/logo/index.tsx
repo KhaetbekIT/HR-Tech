@@ -9,7 +9,7 @@ interface ILogo {
 
 function Logo({ children, className }: ILogo) {
     return (
-        <Link href={"/"} className={classNames('text-xl', className)}>{children}</Link>
+        <Link href={"/"} className={classNames('text-xl font-semibold', className)}>{children}</Link>
     )
 }
 
