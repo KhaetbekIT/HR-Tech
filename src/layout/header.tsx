@@ -2,12 +2,10 @@
 import Logo from "@/components/logo"
 import Menu from "@/components/menu"
 import { Button } from "@/components/ui/button"
-import { Form, FormField } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Bell, CircleHelp, LogOut, Search, Settings } from "lucide-react"
 import { useRouter } from "next/navigation"
-import { FieldValues, UseFormReturn } from "react-hook-form"
 
 type IMenu = {
     key: number | string,
@@ -17,7 +15,7 @@ type IMenu = {
 
 type IHeader = {
     menu: IMenu[],
-    data?: any 
+    data?: any
 }
 
 export const Header = ({ menu, data }: IHeader) => {
@@ -60,13 +58,9 @@ export const Header = ({ menu, data }: IHeader) => {
                     <Bell />
                 </Button>
 
-                {data?.myProfile?.avatar ? (
-                    <div className="w-9 h-9 overflow-hidden rounded-full bg-gray-400">
-                        <img src={data.myProfile.avatar} alt={data.myProfile.name ?? "User avatar"} />
-                    </div>
-                ) : (
-                    <div className="w-9 h-9 overflow-hidden rounded-full bg-gray-400"></div>
-                )}
+                <div className="w-9 h-9 overflow-hidden rounded-full bg-gray-400">
+                    <img src={data?.myProfile?.avatar} alt={data?.myProfile?.name ?? "User avatar"} />
+                </div>
 
                 <Button onClick={onLogOut} className="shadow-none p-0">
                     <LogOut />
