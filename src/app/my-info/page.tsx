@@ -4,7 +4,7 @@ import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMe
 import { Get_MY_PROFILE } from "@/graphql/mutations";
 import { useQuery } from "@apollo/client";
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
-import { ChevronDown, Settings } from "lucide-react";
+import { ChevronDown, EllipsisVertical, Settings } from "lucide-react";
 import { useState } from "react";
 import { TabsData } from "./item/tabs";
 import { TimeOffAside } from "./item/aside";
@@ -118,10 +118,10 @@ const MyInfo = () => {
             <Header data={data} menu={menu} />
 
             <section className="bg-[#dae6f2]">
-                <div className="max-w-[1350px] px-4 pt-[34px] mx-auto">
+                <div className="max-w-[1350px] px-4 mx-auto pt-6 pb-[73px] 2xl:pt-[34px] 2xl:pb-0">
                     <div className="flex gap-[35px]">
                         <div className="max-w-56 w-full">
-                            <div className="mx-auto w-[150px] h-[150px] rounded-full overflow-hidden bg-gray-400">
+                            <div className="mx-auto w-full h-full min-w-[60px] max-w-[150px] min-h-[60px] max-h-[150px] rounded-full overflow-hidden bg-gray-400">
                                 <img src={data?.myProfile?.avatar} alt={data?.myProfile?.name ?? "User avatar"} />
                             </div>
                         </div>
@@ -129,9 +129,15 @@ const MyInfo = () => {
                         <div className="space-y-8 flex-grow">
 
                             <div className="flex justify-between">
-                                <h2 className="text-[28px] font-semibold">{data?.myProfile?.name ?? "Loading..."}</h2>
+                                <div className="min-w-[214px] flex-grow sm:flex-grow-0">
+                                    <h2 className="text-[28px] font-semibold">{data?.myProfile?.name ?? "Loading..."}</h2>
+                                </div>
 
-                                <div className="flex items-center gap-4">
+                                <Button className="shadow-none p-0 sm:hidden">
+                                    <EllipsisVertical />
+                                </Button>
+
+                                <div className="hidden items-center gap-4 sm:flex">
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild className="border-[#7c96b1] rounded-xl p-2">
                                             <Button variant={"outline"} className="space-x-4">
@@ -187,7 +193,7 @@ const MyInfo = () => {
             <section className="py-5 bg-[#f0f3f8]">
                 <div className="max-w-[1350px] px-4 mx-auto">
                     <div className="flex gap-5">
-                        <TimeOffAside className="w-56" />
+                        <TimeOffAside className="hidden w-56 2xl:block" />
 
                         <TabsData defaultValue="time-off" className="-mt-16" list={tabs} />
                     </div>
