@@ -195,7 +195,7 @@ const MyInfo = () => {
                     <div className="flex gap-5">
                         <TimeOffAside className="hidden w-56 2xl:block" />
 
-                        <TabsData defaultValue="time-off" className="-mt-16" list={tabs} />
+                        <TabsData defaultValue="time-off" list={tabs} />
                     </div>
                 </div>
             </section>
