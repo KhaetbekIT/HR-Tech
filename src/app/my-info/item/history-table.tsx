@@ -74,7 +74,7 @@ export const columns: ColumnDef<Payment>[] = [
         accessorKey: "earnedDays",
         header: () => <div className="text-center w-max">Earned Days (+)</div>,
         cell: ({ row }) => {
-            const amount = row.getValue("earnedDays") ?? 0
+            const amount: number | bigint = row.getValue("earnedDays") ?? 0
             const formatted = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(amount)
             return <div className="text-center">{formatted !== "$NaN" ? formatted : undefined}</div>
         },
@@ -83,7 +83,7 @@ export const columns: ColumnDef<Payment>[] = [
         accessorKey: "balance",
         header: () => <div className="text-right">Balance</div>,
         cell: ({ row }) => {
-            const amount = row.getValue("balance")
+            const amount: number | bigint = row.getValue("balance")
             const formatted = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(amount)
             return <div className="text-right font-medium">{formatted}</div>
         },

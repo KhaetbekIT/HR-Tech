@@ -1,0 +1,6 @@
+mutation{
+  login(email: "john@mail.com", password: "changeme"){
+    access_token
+    refresh_token
+  }
+}
