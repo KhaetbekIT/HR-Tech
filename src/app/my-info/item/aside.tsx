@@ -1,6 +1,11 @@
 import classNames from "classnames"
-import { CircleUserRound, Clock, Facebook, Globe, Hash, Linkedin, Mail, MapPin, Phone, Twitter, UsersRound } from "lucide-react"
+import { CircleUserRound, Clock, Globe, Hash, Mail, MapPin, Phone } from "lucide-react"
 import Link from "next/link"
+import LinkedinIcon from "./../../../assets/linkedin.svg"
+import FacebookIcon from "./../../../assets/facebook.svg"
+import TwitterIcon from "./../../../assets/twitter.svg"
+import OperationsIcon from "./../../../assets/operations.svg"
+import Image from "next/image"
 
 interface IAside {
     className?: string
@@ -25,17 +30,17 @@ export const TimeOffAside = ({ className }: IAside) => {
                 </Link>
             </li>
 
-            <li className="flex items-center gap-2">
+            <li className="flex items-center gap-3.5">
                 <Link href={"https://www.linkedin.com/"} target="_blank">
-                    <Linkedin />
+                    <Image src={LinkedinIcon} alt="Linkedin" />
                 </Link>
 
                 <Link href={"https://www.facebook.com/"} target="_blank">
-                    <Facebook />
+                    <Image src={FacebookIcon} alt="Facebook" />
                 </Link>
 
                 <Link href={"https://www.twitter.com/"} target="_blank">
-                    <Twitter />
+                    <Image src={TwitterIcon} alt="Twitter | X" />
                 </Link>
             </li>
         </ul>
@@ -68,7 +73,7 @@ export const TimeOffAside = ({ className }: IAside) => {
             </li>
 
             <li className="flex gap-2 items-center">
-                <UsersRound />
+                <Image className="w-6" src={OperationsIcon} alt="Operations Icon" />
 
                 <p className="text-sm font-medium">Operations</p>
             </li>
@@ -111,7 +116,7 @@ export const TimeOffAside = ({ className }: IAside) => {
                     <p className="text-sm font-medium">Philip</p>
                 </li>
                 <li className="flex gap-2 items-center">
-                    <UsersRound />
+                    <Image className="w-6" src={OperationsIcon} alt="More Icon" />
 
                     <p className="text-sm font-medium">More...</p>
                 </li>

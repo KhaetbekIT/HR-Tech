@@ -1,4 +1,4 @@
-## Запуск проекта HarmonyHR
+## Запуск проект HarmonyHR
 
 `для проверки последний версий NodeJS 20.х`
 ```bash
@@ -8,7 +8,7 @@ node -v
 ```bash
 npm install 
 ```
-`запуск проект на` [http://localhost:3000](http://localhost:3000/HR-Tech)
+`запуск проект на` [http://localhost:3000/HR-Tech](http://localhost:3000/HR-Tech)
 ```bash
 npm run dev
 ```

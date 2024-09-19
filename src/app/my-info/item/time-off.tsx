@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button"
-import { Clock4, FileClock, MountainSnow, Plus } from "lucide-react"
+import { Clock4, FileClock } from "lucide-react"
 import BigPlusIcon from "./../../../assets/big-plus.svg"
 import BigPigIcon from "./../../../assets/big-pig.svg"
 import HistoryIcon from "./../../../assets/history.svg"
 import MountainSunIcon from "./../../../assets/mountain-sun.svg"
+import CompTimeIcon from "./../../../assets/comp-time.svg"
 import Image from "next/image"
 import { HistoryTable } from "./history-table"
 
@@ -65,7 +66,7 @@ export const TimeOffTabContent = () => {
                 <div className=" bg-[#f0f3f8] py-8 rounded-xl min-h-[160px]  space-y-2">
                     <p className="font-semibold text-xl">Comp/in Lieu Time</p>
                     <div className="flex justify-center items-center">
-                        <FileClock color="#1c3144" size={30} />
+                        <Image src={CompTimeIcon} alt="Plus Icon" className="mr-1.5" />
 
                         <p className="font-semibold text-3xl text-[#1c3144]">
                             0
